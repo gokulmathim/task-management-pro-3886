@@ -17,6 +17,9 @@ function App() {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
 
+  // NEW: simple state & handler for demo
+  const [newTask, setNewTask] = useState('');
+
   return (
     <div className="App">
       <Header />
@@ -28,6 +31,20 @@ function App() {
         >
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
+
+        {/* Task input field */}
+        <div style={{ margin: "2rem auto 1rem", maxWidth: 400 }}>
+          <input
+            className="task-input"
+            value={newTask}
+            onChange={e => setNewTask(e.target.value)}
+            placeholder="Add a new task…"
+            aria-label="Add a new task"
+            autoComplete="off"
+            type="text"
+          />
+        </div>
+
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
