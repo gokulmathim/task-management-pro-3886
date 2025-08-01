@@ -29,6 +29,42 @@ function App() {
     // e.g., filter tasks by status
   };
 
+  // --- Demo task list state ---
+  const [tasks, setTasks] = useState([
+    { id: 1, title: "Buy groceries", completed: false },
+    { id: 2, title: "Finish React project", completed: true },
+    { id: 3, title: "Read book", completed: false },
+    { id: 4, title: "Update resume", completed: true }
+  ]);
+
+  // Demo rendering of (all) tasks; in future, a filter would determine which ones to show
+  function renderTasks() {
+    return (
+      <ul style={{ maxWidth: 400, margin: "2rem auto", padding: 0, listStyle: "none" }}>
+        {tasks.map(task => (
+          <li
+            key={task.id}
+            className={task.completed ? "tz-task-completed" : ""}
+            style={{
+              textAlign: "left",
+              background: "var(--bg-secondary)",
+              border: "1px solid var(--border-color)",
+              borderRadius: "12px",
+              marginBottom: "0.65rem",
+              padding: "0.82rem 1.2rem",
+              fontWeight: 500,
+              fontSize: "1rem",
+              letterSpacing: "0.01em"
+            }}
+            aria-label={task.completed ? "Completed task" : "Active task"}
+          >
+            {task.title}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <div className="App">
       <Header />
@@ -56,6 +92,9 @@ function App() {
 
         {/* Filter buttons */}
         <FilterButtons current={filter} onChange={handleFilterChange} />
+
+        {/* Demo list of tasks */}
+        {renderTasks()}
 
         <p>
           Edit <code>src/App.js</code> and save to reload.

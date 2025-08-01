@@ -126,6 +126,15 @@
   margin: 0 auto 2rem;
 }
 
+/* Completed task style */
+.tz-task-completed {
+  color: #bbb !important;
+  text-decoration: line-through;
+  opacity: 0.7;
+  font-style: italic;
+  transition: color 0.13s;
+}
+
 .tz-filter-btn {
   all: unset;
   box-sizing: border-box;
