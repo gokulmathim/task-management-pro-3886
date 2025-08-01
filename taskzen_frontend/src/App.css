@@ -118,12 +118,55 @@
   letter-spacing: 0.01em;
 }
 
-/* Responsive design for mobile */
+/* Filter Button Group */
+.tz-filter-btn-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto 2rem;
+}
+
+.tz-filter-btn {
+  all: unset;
+  box-sizing: border-box;
+  min-width: 70px;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 18px;
+  padding: 0.45em 1.2em;
+  border: 1.5px solid var(--border-color, #e9ecef);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.17s, color 0.17s, border-color 0.19s, box-shadow 0.17s;
+  outline: none;
+  letter-spacing: 0.01em;
+}
+.tz-filter-btn.selected,
+.tz-filter-btn:focus-visible {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-color: var(--button-bg);
+  box-shadow: 0 1px 8px 0 rgba(60, 120, 255, 0.09);
+}
+.tz-filter-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--button-bg);
+  border-color: var(--button-bg);
+}
+.tz-filter-btn.selected {
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .theme-toggle {
     top: 10px;
     right: 10px;
     padding: 8px 16px;
     font-size: 12px;
+  }
+  .tz-filter-btn-group {
+    gap: 0.5rem;
   }
 }
